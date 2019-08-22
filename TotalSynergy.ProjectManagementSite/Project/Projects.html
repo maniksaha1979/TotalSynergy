@@ -1,10 +1,28 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<h1>{{ProjectTitle}}</h1>
+<hr />
+<a href="#NewProject" class="btn btn-primary">Add New Project</a>
+<hr />
+<a ng-click="ProjectRefresh()" class="btn btn-primary">Refresh List</a>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="info">
+            <td>
+                Project ID
+            </td>
+            <td>
+                Project Name
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="success" ng-repeat="proj in AllProjects">
+            <td>
+                {{proj.Id}}
+            </td>
+            <td>
+                {{proj.Name}}
+            </td>
+              
+        </tr>
+    </tbody>
+</table>

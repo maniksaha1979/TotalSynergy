@@ -1,9 +1,14 @@
 ﻿(function () {
     var ProjectController = function ($scope, projectService, $log, $routeParams, $location) {
-        var projects = function (data) {
-            $scope.Projects = data;
-            $log.info(data);
+
+        var getProjects = function (data) {
+            $log.log(data);
+            $scope.AllProjects = data;
+            $log.log(data);
+            $log.log($scope.AllProjects);
         };
+
+        $scope.ProjectTitle = "Project Details Page";
 
         $scope.init = function () {
             
@@ -14,7 +19,7 @@
             Name: null
         };
 
-        $scope.project = project;
+        $scope.Project = project;
 
         var errorDetails = function (serviceResp) {
             $scope.Error = "Something went wrong ??";
@@ -23,19 +28,18 @@
         $scope.AddProject = function (project) {
             projectService.addProject(project)
                 .then(function (data) {
-                    console.log(data);
-                    $location.path("/Project");
+                    $location.path("/AddProject");
                 });
         };
 
         
-        var refresh = function () {
-            projectService.projects()
-                .then(projects, errorDetails);
+        $scope.ProjectRefresh = function () {
+            projectService.Getprojects()
+                .then(getProjects, errorDetails);
         };
 
-        refresh();
-        $scope.Title = "Project Details Page";
+        $scope.ProjectRefresh();
+        
     };
     app.controller("ProjectController", ["$scope", "projectService", "$log", "$routeParams", "$location", ProjectController]);
 }());

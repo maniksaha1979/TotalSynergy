@@ -1,15 +1,15 @@
 ﻿(function () {
     var projectService = function ($http, $q, $log) {
-        var cachedProjects;
+        
 
         var projects = function () {
-            if (cachedProjects)
-                return $q.when(cachedProjects);
-
-            return $http.get(String.format("{0}api/Project/All", DataApiPath()))
+            $log.log("In projects in service");
+            var geturl = String.format("{0}api/Project/All", DataApiPath()) + "?callback==JSON_CALLBACK";
+            return $http.jsonp(geturl)
                 .then(function (serviceResp) {
-                    cachedProjects = serviceResp.data;
-                    return serviceResp.data;
+                    $log.debug(serviceResp);
+                    $log.log(serviceResp.found);
+                    return serviceResp.found;
                 });
         };
 
@@ -23,8 +23,8 @@
         };
 
         return {
-            projects: projects,
-            addProject: addProject
+            Getprojects: projects,
+            CreateProject: addProject
         };
     };
 
