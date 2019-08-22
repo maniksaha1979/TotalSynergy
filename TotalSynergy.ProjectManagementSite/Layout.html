@@ -1,27 +1,25 @@
 ﻿<!DOCTYPE html>
-<html lang="en" ng-app="ProjectTrackingModule">
+<html lang="en" ng-app="TotalSynergyTestModule">
 <head>
     <title>Project Tracking Home Page</title>
-
     <link href="CSS/amelia.bootstrap.min.css" rel="stylesheet" />
     <link href="CSS/Site.css" rel="stylesheet" />
-
-    <script src="Scripts/jquery-2.1.0.min.js"></script>
+    <script src="../Scripts/jquery-2.1.0.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
-    <script src="Scripts/angular-route.min.js"></script>
-    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
-
-    <script src="Scripts/app.js"></script>
-    <script src="Scripts/util_String.js"></script>
-    <script src="Controllers/HomeController.js"></script>
-    <script src="Services/ProjectsService.js"></script>
-    <script src="Controllers/ProjectsController.js"></script>
-    <script src="Controllers/ContactController.js"></script>
-    <script src="Services/ContactService.js"></script>
-    <script src="Controllers/ProjectController.js"></script>
-    <script src="Services/ProjectContactService.js"></script>
-    <script src="Controllers/ProjectTasksController.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="../Scripts/app.js"></script>
+    <script src="../Scripts/util_String.js"></script>
+    <script src="../Controllers/HomeController.js"></script>
+    <script src="../Services/ProjectService.js"></script>
+    <script src="../Controllers/ProjectController.js"></script>
+    <script src="../Controllers/ContactController.js"></script>
+    <script src="../Services/ContactService.js"></script>
+    <script src="../Controllers/ProjectController.js"></script>
+    <script src="../Services/ProjectContactService.js"></script>
     
+    
+
 </head>
 <body>
 
@@ -37,16 +35,13 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="#Home">Home</a>
+                    <a href="#Project">Projects</a>
                 </li>
                 <li class="active">
-                    <a href="#Projects">Projects</a>
+                    <a href="#/Contact/Contacts">Contact</a>
                 </li>
                 <li class="active">
-                    <a href="#Contact">Contact</a>
-                </li>
-                <li class="active">
-                    <a href="#ProjectContact">ProjectContact</a>
+                    <a href="#/ProjectContact/ProjectContactList">ProjectContact</a>
                 </li>
                
             </ul>
@@ -61,7 +56,7 @@
 
     <div>
         <div>
-            <footer>
+            <!--<footer>
                 <div>
                     <a href="#">Site Map</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="#">About Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -75,7 +70,7 @@
                     Ficticious Company,
                     Contact No - (222) - 5563369
                 </address>
-            </footer>
+            </footer>-->
         </div>
     </div>
 </body>
