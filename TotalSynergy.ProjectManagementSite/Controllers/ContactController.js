@@ -1,9 +1,11 @@
 ﻿(function () {
-    var ContactController = function ($scope, ContactService, $log, $routeParams, $location) {
-        var Contacts = function (data) {
-            $scope.Contacts = data;
+    var ContactController = function ($scope, contactService, $log, $routeParams, $location) {
+        var getContacts = function (data) {
+            $scope.AllContacts = data;
             $log.info(data);
         };
+
+        $scope.ContactTitle = "Contact Details Page";
 
         $scope.init = function () {
 
@@ -15,14 +17,14 @@
             Details: null 
         };
 
-        $scope.Contact = Contact;
+        $scope.SingleContact = Contact;
 
         var errorDetails = function (serviceResp) {
             $scope.Error = "Something went wrong ??";
         };
 
         $scope.AddContact = function (Contact) {
-            ContactService.addContact(Contact)
+            contactService.CreateContact(Contact)
                 .then(function (data) {
                     console.log(data);
                     $location.path("/Contact");
@@ -30,13 +32,13 @@
         };
 
 
-        var refresh = function () {
-            ContactService.contacts()
-                .then(Contacts, errorDetails);
+        $scope.ContactRefresh = function () {
+            contactService.Getcontacts()
+                .then(getContacts, errorDetails);
         };
 
-        refresh();
-        $scope.Title = "Contact Details Page";
+        $scope.ContactRefresh();
+       
     };
-    app.controller("ContactController", ["$scope", "ContactService", "$log", "$routeParams", "$location", ContactController]);
+    app.controller("ContactController", ["$scope", "contactService", "$log", "$routeParams", "$location", ContactController]);
 }());

@@ -11,7 +11,7 @@ app.config(function ($routeProvider) {
         })
         .when("/AddProject", {
             templateUrl: "Project/AddProject.html",
-            controller: "ProjectController"
+            controller: "AddProjectController"
         })
         .when("/Contact", {
             templateUrl: "Contact/Contacts.html",

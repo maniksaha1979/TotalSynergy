@@ -19,14 +19,15 @@
             Name: null
         };
 
-        $scope.Project = project;
+        $scope.SingleProject = project;
 
         var errorDetails = function (serviceResp) {
             $scope.Error = "Something went wrong ??";
         };
 
         $scope.AddProject = function (project) {
-            projectService.addProject(project)
+            $log.log(project.Name);
+            projectService.CreateProject(project)
                 .then(function (data) {
                     $location.path("/AddProject");
                 });

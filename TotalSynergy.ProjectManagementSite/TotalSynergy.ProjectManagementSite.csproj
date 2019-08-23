@@ -85,6 +85,7 @@
     <Content Include="Controllers\ContactController.js" />
     <Content Include="Controllers\HomeController.js" />
     <Content Include="Controllers\ProjectContactController.js" />
+    <Content Include="Controllers\AddProjectController.js" />
     <Content Include="Controllers\ProjectController.js" />
     <Content Include="CSS\amelia.bootstrap.min.css" />
     <Content Include="CSS\Site.css" />

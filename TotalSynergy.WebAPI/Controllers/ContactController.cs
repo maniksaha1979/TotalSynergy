@@ -8,9 +8,11 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using TotalSynergy.Service;
 using TotalSynergy.UI.BO;
+using System.Web.Http.Cors;
 
 namespace TotalSynergy.WebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:55836", headers: "*", methods: "*")]
     [ApiExplorerSettings(IgnoreApi = true)]
     [RoutePrefix("api/Contact")]
     public class ContactController : ApiController

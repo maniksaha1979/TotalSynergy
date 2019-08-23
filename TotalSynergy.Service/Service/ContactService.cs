@@ -31,6 +31,7 @@ namespace TotalSynergy.Service
             else
             {
                 Contact data = BOMapper.Map<ContactVM, Contact>(contact);
+                data.Id = Guid.NewGuid();
                 UnitOfWork.Contacts.Add(data);
                 await UnitOfWork.Complete();
                 return true;

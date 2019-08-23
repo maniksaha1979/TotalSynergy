@@ -33,6 +33,7 @@ namespace TotalSynergy.Service
             { 
   
                 Project data = BOMapper.Map<ProjectVM, Project>(project);
+                data.Id = Guid.NewGuid();
                 UnitOfWork.Projects.Add(data);
                 await UnitOfWork.Complete();
                 return true;
