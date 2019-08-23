@@ -94,7 +94,6 @@
     <Content Include="Images\facebook-icon.png" />
     <Content Include="Images\linkedin.png" />
     <Content Include="Images\Twitter_bird_icon.png" />
-    <Content Include="Index.html" />
     <Content Include="Layout.html" />
     <Content Include="ProjectContact\AddProjectContact.html" />
     <Content Include="ProjectContact\ProjectContactList.html" />
