@@ -1,26 +1,31 @@
 ﻿(function () {
-    var ProjectContactController = function ($scope, $location, projectContactService, projectService, contactService) {
-        var projects = function (data) {
-            $scope.projects = data;
+    var ProjectContactController = function ($scope, projectContactService, projectService, contactService, $log, $routeParams, $location,) {
+
+        var availableProjects = function (data) {
+            $scope.allAvailableprojects = data;
         };
         var errorDetails = function (serviceResp) {
             $scope.Error = "Something went wrong!!";
         };
 
-        projectService.projects().then(projects, errorDetails);
-
-        var contacts = function (data) {
-            $scope.contacts = data;
+        var refreshProjects = function () {
+            projectService.Getprojects().then(availableProjects, errorDetails);
         };
 
-        contactService.contacts().then(contacts, errorDetails);
+        var availablecontacts = function (data) {
+            $scope.allAvailablecontacts = data;
+        };
+
+        var refreshContacts = function () {
+            contactService.Getcontacts().then(availablecontacts, errorDetails);
+        };
 
         var projectContacts = function (data) {
             $scope.projectContacts = data;
         };
 
-        projectContactService.projectContacts().then(projectContacts, errorDetails);
-        $scope.Title = "Project Contact Page";
+        
+        $scope.ProjectContactTitle = "Project Contact Page";
 
         $scope.init = function () {
 
@@ -34,26 +39,36 @@
             ContactName: null
         };
 
-        $scope.ProjectContact = projectContact;
+
+        $scope.singleProjectContact = projectContact;
+
+       var getProjectContacts = function (data) {
+            $scope.allProjectContacts = data;
+        };
         
 
         $scope.AddProjectContact = function (ProjectContact) {
-            projectContactService.addProjectContact(ProjectContact)
+            projectContactService.CreateProjectContact(ProjectContact)
                 .then(function (data) {
                     console.log(data);
                     $location.path("/ProjectContact");
                 });
         };
 
-
-        var refresh = function () {
-            projectContactService.projectContacts()
-                .then(projectContacts, errorDetails);
+        $scope.ProjectContactRefresh = function () {
+            projectContactService.GetprojectContacts()
+                .then(getProjectContacts, errorDetails);
         };
 
-        refresh();
+        var refresh = function () {
+            projectContactService.GetprojectContacts()
+                .then(getProjectContacts, errorDetails);
+        };
 
+        refreshProjects();
+        refreshContacts();
+        refresh();
        
     };
-    app.controller("ProjectContactController", ["$scope", "$location", "projectContactService", "projectService", "contactService", ProjectContactController]);
+    app.controller("ProjectContactController", ["$scope", "projectContactService", "projectService", "contactService",  "$log", "$routeParams", "$location", ProjectContactController]);
 }());

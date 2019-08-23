@@ -46,9 +46,6 @@ namespace TotalSynergy.DAL.Repositories
             return item;
         }
 
-        Task<bool> IProjectContactRepository.IsRecordExist(Guid projectId, Guid contactId)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

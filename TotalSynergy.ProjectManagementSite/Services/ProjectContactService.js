@@ -15,8 +15,8 @@
         };
 
         return {
-            projectContact: projectContact,
-            addProjectContact: addProjectContact
+            GetprojectContacts: projectContacts,
+            CreateProjectContact: addProjectContact
         };
     };
     var module = angular.module("TotalSynergyTestModule");

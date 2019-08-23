@@ -1,10 +1,23 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<form class="form-horizontal" name="insertEmployeeForm">
+    <fieldset>
+        <legend>Assign Contact To Project</legend>
+        <div class="form-group">
+            <label for="userStory" class="col-lg-2 control-label">Select Project</label>
+            <div class="col-lg-10">
+                <select ng-model="singleProjectContact.ProjectID" ng-options="value.Id as value.Name for value in allAvailableprojects" style="color: #000000;"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userStory" class="col-lg-2 control-label">Select Contact</label>
+            <div class="col-lg-10">
+                <select ng-model="singleProjectContact.ContactID" ng-options="value.Id as value.Name for value in allAvailablecontacts" style="color: #000000;"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <a href="#ProjectContact" class="btn btn-default">Cancel</a>
+                <a class="btn btn-primary" ng-click="AddProjectContact(singleProjectContact)">Save</a>
+            </div>
+        </div>
+    </fieldset>
+</form>
